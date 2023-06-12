@@ -1,0 +1,32 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+mouse = false
+shell = ["zsh", "-c"]
+bufferline = "multiple"
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-modification-indicator"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position-percentage", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+enable = true
+display-messages = true
+display-inlay-hints = true
+
+[editor.whitespace]
+render = "all"
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal.b]
+c = ":buffer-close"
+n = ":new"

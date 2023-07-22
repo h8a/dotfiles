@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Add default temp desktop because a minimum of one desktop is required per monitor
+bspc monitor HDMI-1-1 -a Desktop
+
+# Move all desktops except the last default desktop to internal monitor
+for desktop in $(bspc query -D -m HDMI-1-1);	do
+	bspc desktop "$desktop" --to-monitor eDP-1-1
+done
+
+# delete default desktops
+bspc desktop Desktop --remove
+
+# reorder desktops
+bspc monitor eDP-1-1 -o I II III IV V VI VII VIII IX X

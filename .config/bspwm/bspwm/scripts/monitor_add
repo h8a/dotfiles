@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Move first 5 desktops to external monitor
+for desktop in $(bspc query -D --names -m eDP-1-1 | sed 5q); do
+	bspc desktop "$desktop" --to-monitor HDMI-1-1
+done
+
+# Remove default desktop created by bspwm
+bspc desktop Desktop --remove
+
+# reorder monitors
+bspc wm -O eDP-1-1 HDMI-1-1
